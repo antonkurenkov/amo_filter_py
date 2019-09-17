@@ -51,6 +51,9 @@ def splitter(line):
         return double(f'{name[0]},,{name[1]}')
     elif len(name) == 3:
         return triple(f'{name[0]},{name[1]},{name[2]}')
+    else:
+        mid = ' '.join(name[1:-1])
+        return f'{name[0]},{mid},{name[-1]}'
 
 
 def main():
