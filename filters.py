@@ -1,11 +1,11 @@
 import csv
 import options.switch
 from datetime import datetime
-
+from glue import glue
 
 class Table:
     def __init__(self, imp):
-        self.source = csv.reader(open(imp, encoding="utf8"), delimiter=';', quotechar='"')
+        self.source = csv.reader(open(imp, encoding="utf8"), delimiter=";", quotechar='"')
 
 
 def ops(line, check):
@@ -21,8 +21,8 @@ def ops(line, check):
 
 
 def main():
-
-    # imp = input("Введите имя файла: ")
+    #glue(int(input('Введите число первичных файлов: ')))
+    # imp = input('Введите имя файла: ')
     imp = 'amocrm_contacts (total).csv'
     tab = Table(imp)
     i = 0
@@ -30,7 +30,8 @@ def main():
 
     for line in tab.source:
         i += 1
-        print(f"{i:<5}'st line is: {line[58]:>10}{line[1]:>40}{line[20]:>60}{line[2]:>70}")
+        #print(f"{i:<5}'st line is: {line[58]:>10}{line[1]:>40}{line[20]:>60}{line[2]:>70}")
+        print(f'{i:<5}\'st line is: {line[1]:>40}')
         ops(line, check)
 
 
